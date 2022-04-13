@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import logo from './logo.svg';
+import AuctioneerBtn from './compenents/AuctioneerBtn';
 import './App.css';
 
 const theme = createTheme({
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-
+        <AuctioneerBtn txt="Auctioneer"/>
       </ThemeProvider>
     </div>
   );
