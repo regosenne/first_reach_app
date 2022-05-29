@@ -1,39 +1,27 @@
-import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import AuctioneerBtn from './compenents/AuctioneerBtn';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AppNavbar from './components/AppNavbar';
+import Home from './components/views/Home';
+import About from './components/views/About';
+import DeployScreen from './components/views/DeployScreen';
+import { Auc } from './components/participants/Auc';
+import { Bid } from './components/participants/Bid';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main:"#2e1667",
-    },
-    secondary: {
-      main:"#c7d8ed",
-    },
-  },
-  typography: {
-    fontFamily: [
-      'Roboto'
-    ],
-    h4: {
-      fontWeight: 600,
-      fontSize: 28,
-      lineHeight: '2rem',
-    },
-    h5: {
-      fontWeight: 100,
-      lineHeight: '2rem',
-    },
-  },
-});
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <AuctioneerBtn txt="Auctioneer"/>
-      </ThemeProvider>
-    </div>
+    <Router>
+      <div className="App">
+        <AppNavbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/deploy" component={DeployScreen} />
+          <Route path="/app/Auc" component={Auc} />
+          <Route path="/app/Bid" component={Bid} />
+{/*  <Route path="/test" component={AcceptWager} />*/}          
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
